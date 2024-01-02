@@ -16,7 +16,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Code Style, Naming Rules:** Establish coding style and naming conventions.
 - [x] **Importing Assets:** Learn how to import assets into your Unity project.
 - [x] **Post Processing:** Implement post-processing effects.
-- [ ] **Character Controller:** Create a character controller for player movement.
+- [x] **Character Controller:** Create a character controller for player movement.
 - [ ] **Character Visual, Rotation:** Add visuals and rotation to the character.
 - [ ] **Animations:** Implement character animations.
 - [ ] **Cinemachine:** Integrate the Cinemachine camera system.
