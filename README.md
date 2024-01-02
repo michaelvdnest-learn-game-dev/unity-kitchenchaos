@@ -12,8 +12,8 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 
 - [x] **Create Project:** Set up the Unity project for the game.
 - [x] **Unity Layout:** Familiarize yourself with the Unity interface layout.
-- [ ] **Visual Studio:** Integrate Visual Studio for coding.
-- [ ] **Code Style, Naming Rules:** Establish coding style and naming conventions.
+- [x] **Visual Studio:** Integrate Visual Studio for coding.
+- [x] **Code Style, Naming Rules:** Establish coding style and naming conventions.
 - [ ] **Importing Assets:** Learn how to import assets into your Unity project.
 - [ ] **Post Processing:** Implement post-processing effects.
 - [ ] **Character Controller:** Create a character controller for player movement.
