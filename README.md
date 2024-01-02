@@ -10,7 +10,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 
 ## Milestones Checklist
 
-- [ ] **Create Project:** Set up the Unity project for the game.
+- [x] **Create Project:** Set up the Unity project for the game.
 - [ ] **Unity Layout:** Familiarize yourself with the Unity interface layout.
 - [ ] **Visual Studio:** Integrate Visual Studio for coding.
 - [ ] **Code Style, Naming Rules:** Establish coding style and naming conventions.
