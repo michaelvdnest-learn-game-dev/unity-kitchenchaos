@@ -370,6 +370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   rotationSpeed: 10
+  playerSize: 0.7
+  playerHeight: 2
   gameInput: {fileID: 145820427}
 --- !u!4 &357958694
 Transform:
@@ -947,6 +949,6 @@ SceneRoots:
   - {fileID: 1691676268}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 145820428}
   - {fileID: 704683755}
   - {fileID: 357958694}
-  - {fileID: 145820428}
