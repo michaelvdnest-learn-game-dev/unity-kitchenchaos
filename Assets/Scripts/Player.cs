@@ -5,6 +5,9 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float moveSpeed = 7f;
 
+    [SerializeField]
+    private float rotationSpeed = 10f;
+
     // Start is called before the first frame update
     private void Start() {
         
@@ -31,9 +34,14 @@ public class Player : MonoBehaviour {
         // Normalize so that player moves at the same speed in a diagonal
         inputVector = inputVector.normalized;
 
+        // Get a vector of the player's movement
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
-        transform.position += moveDirection * Time.deltaTime * moveSpeed;
+        
+        // Move the player
+        transform.position += moveSpeed * Time.deltaTime * moveDirection;
 
-        Debug.Log(Time.deltaTime);
+        // Rotate the player
+        transform.forward = Vector3.Slerp(transform.forward, moveDirection, rotationSpeed * Time.deltaTime);
+
     }
 }
