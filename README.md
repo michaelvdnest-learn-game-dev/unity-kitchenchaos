@@ -22,7 +22,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Cinemachine:** Integrate the Cinemachine camera system.
 - [x] **Input System Refactor:** Refactor input system handling.
 - [x] **Collision Detection:** Handle collision detection.
-- [ ] **Clear Counter:** Implement a counter to track cleared items.
+- [x] **Clear Counter:** Implement a counter to track cleared items.
 - [ ] **Interact Action, C# Events:** Create an interaction system using C# events.
 - [ ] **Selected Counter Visual, Singleton Pattern:** Implement a counter with a singleton pattern.
 - [ ] **Kitchen Object, Scriptable Objects:** Utilize Scriptable Objects for kitchen objects.
