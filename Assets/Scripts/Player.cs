@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float rotationSpeed = 10f;
 
+    private bool isWalking;
+
     // Start is called before the first frame update
     private void Start() {
         
@@ -36,12 +38,17 @@ public class Player : MonoBehaviour {
 
         // Get a vector of the player's movement
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        isWalking = moveDirection != Vector3.zero;
         
         // Move the player
         transform.position += moveSpeed * Time.deltaTime * moveDirection;
 
         // Rotate the player
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, rotationSpeed * Time.deltaTime);
+    }
 
+    public bool IsWalking() {
+        return isWalking;
     }
 }
