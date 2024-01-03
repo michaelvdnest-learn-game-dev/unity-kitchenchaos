@@ -19,7 +19,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Character Controller:** Create a character controller for player movement.
 - [x] **Character Visual, Rotation:** Add visuals and rotation to the character.
 - [x] **Animations:** Implement character animations.
-- [ ] **Cinemachine:** Integrate the Cinemachine camera system.
+- [x] **Cinemachine:** Integrate the Cinemachine camera system.
 - [ ] **Input System Refactor:** Refactor input system handling.
 - [ ] **Collision Detection:** Handle collision detection.
 - [ ] **Clear Counter:** Implement a counter to track cleared items.
