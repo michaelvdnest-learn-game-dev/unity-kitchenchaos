@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
 
     // Start is called before the first frame update
     private void Start() {
-        
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
     }
 
     // Update is called once per frame
@@ -40,6 +40,15 @@ public class Player : MonoBehaviour {
 
     public bool IsWalking() {
         return isWalking;
+    }
+
+    private void GameInput_OnInteractAction(object sender, System.EventArgs e) {
+        if (Physics.Raycast(transform.position, lastInteractDirection, out RaycastHit hitInfo, interactDistance, countersLayersMask)) {
+            if (hitInfo.transform.TryGetComponent(out ClearCounter clearCounter)){
+                // Has ClearCounter
+                clearCounter.Interact();
+            }
+        }
     }
 
     private void HandleMovement() {
@@ -88,13 +97,6 @@ public class Player : MonoBehaviour {
 
         if (moveDirection != Vector3.zero){
             lastInteractDirection = moveDirection;
-        }
-
-        if (Physics.Raycast(transform.position, lastInteractDirection, out RaycastHit hitInfo, interactDistance, countersLayersMask)) {
-            if (hitInfo.transform.TryGetComponent(out ClearCounter clearCounter)){
-                // Has ClearCounter
-                clearCounter.Interact();
-            }
         }
     }
 }
