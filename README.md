@@ -24,7 +24,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Collision Detection:** Handle collision detection.
 - [x] **Clear Counter:** Implement a counter to track cleared items.
 - [x] **Interact Action, C# Events:** Create an interaction system using C# events.
-- [ ] **Selected Counter Visual, Singleton Pattern:** Implement a counter with a singleton pattern.
+- [x] **Selected Counter Visual, Singleton Pattern:** Implement a counter with a singleton pattern.
 - [ ] **Kitchen Object, Scriptable Objects:** Utilize Scriptable Objects for kitchen objects.
 - [ ] **Kitchen Object Parent:** Organize kitchen objects using parent-child relationships.
 - [ ] **Player Pick up, C# Interfaces:** Implement a player pick-up system using C# interfaces.
