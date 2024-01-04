@@ -27,7 +27,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Selected Counter Visual, Singleton Pattern:** Implement a counter with a singleton pattern.
 - [x] **Kitchen Object, Scriptable Objects:** Utilize Scriptable Objects for kitchen objects.
 - [x] **Kitchen Object Parent:** Organize kitchen objects using parent-child relationships.
-- [ ] **Player Pick up, C# Interfaces:** Implement a player pick-up system using C# interfaces.
+- [x] **Player Pick up, C# Interfaces:** Implement a player pick-up system using C# interfaces.
 - [ ] **Container Counter:** Track the count of items in containers.
 - [ ] **Player Pick up, Drop Objects:** Allow players to pick up and drop objects.
 - [ ] **Cutting Counter, Interact Alternate:** Implement an alternate interaction for cutting.
