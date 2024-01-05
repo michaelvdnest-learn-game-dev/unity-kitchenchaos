@@ -6,13 +6,13 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class CuttingCounter : BaseCounter {
 
-    [SerializeField] private KitchenObjectSO cutKitchenObjectSO;
+    [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
 
     public override void Interact(Player player) {
         // Drop items on the counter
         if (!HasKitchenObject()) {
-            if (player.HasKitchenObject()) {
-                // Set the kitchen object on the player to this counter
+            if (CanCutKitchenObject(player)) {
+                // Set the kitchen object on the player to this counter only if it can be cut
                 player.GetKitchenObject().SetKitchenObjectParent(this);
             }
         } else {
@@ -23,11 +23,31 @@ public class CuttingCounter : BaseCounter {
     }
 
     public override void InteractAlternate(Player player) {
-        if (HasKitchenObject()) {
-            this.GetKitchenObject().DestroySelf();
-
+        if (CanCutKitchenObject(this)) {
+            KitchenObjectSO cutKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
+            GetKitchenObject().DestroySelf();
             KitchenObject.SpawnKitchenObject(cutKitchenObjectSO, this);
         }
+    }
+
+    public KitchenObjectSO GetOutputForInput(KitchenObjectSO input) {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray) {
+            if (cuttingRecipeSO.input == input) {
+                return cuttingRecipeSO.output;
+            }
+        }
+        return null;
+    }
+
+    public bool CanCutKitchenObject(IKitchenObjectParent parent) {
+        if (parent.HasKitchenObject()) {
+            KitchenObjectSO kitchenObjectSO = parent.GetKitchenObject().GetKitchenObjectSO();
+            if (GetOutputForInput(kitchenObjectSO) != null) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
 

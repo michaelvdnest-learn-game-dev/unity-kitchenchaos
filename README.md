@@ -31,7 +31,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Container Counter:** Implement counter that spawns ingredients.
 - [x] **Player Pick up, Drop Objects:** Allow players to pick up and drop objects.
 - [x] **Cutting Counter, Interact Alternate:** Implement a cutting counter.
-- [ ] **Cutting Recipe SO:** Utilize Scriptable Objects for cutting objects.
+- [x] **Cutting Recipe SO:** Utilize Scriptable Objects for cutting objects.
 - [ ] **Cutting Progress, World Canvas:** Display cutting progress on a world canvas.
 - [ ] **Look At Camera:** Make objects look at the camera.
 - [ ] **Trash Counter:** Implement a counter for trashed items.
