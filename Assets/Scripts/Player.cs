@@ -66,14 +66,14 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         if (!canMove) {
             // Attempt moving in X direction.
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0f, 0f).normalized;
-            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDirectionX, moveDistance);
+            canMove = moveDirection.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDirectionX, moveDistance);
             
             if (canMove) {
                 moveDirection = moveDirectionX;
             } else {
                 // Attempt moving in X direction.
                 Vector3 moveDirectionZ = new Vector3(0f, 0f, moveDirection.z).normalized;
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDirectionZ, moveDistance);
+                canMove = moveDirection.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDirectionZ, moveDistance);
 
                 if (canMove) {
                     moveDirection = moveDirectionZ;
