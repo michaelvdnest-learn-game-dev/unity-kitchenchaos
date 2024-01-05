@@ -1,12 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ClearCounter : BaseCounter {
-
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
-   
+public class CuttingCounter : BaseCounter {
     public override void Interact(Player player) {
         // Drop items on the counter
         if (!HasKitchenObject()) {
