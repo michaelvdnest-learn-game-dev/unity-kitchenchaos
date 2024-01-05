@@ -35,7 +35,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     // Start is called before the first frame update
     private void Start() {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
+        gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
+
 
     // Update is called once per frame
     private void Update() {
@@ -50,6 +52,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     private void GameInput_OnInteractAction(object sender, System.EventArgs e) {
         if (selectedCounter != null) {
             selectedCounter.Interact(this);
+        }
+    }
+    private void GameInput_OnInteractAlternateAction(object sender, EventArgs e) {
+        if (selectedCounter != null) {
+            selectedCounter.InteractAlternate(this);
         }
     }
 
