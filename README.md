@@ -29,7 +29,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Kitchen Object Parent:** Organize kitchen objects using parent-child relationships.
 - [x] **Player Pick up, C# Interfaces:** Implement a player pick-up system using C# interfaces.
 - [x] **Container Counter:** Implement counter that spawns ingredients.
-- [ ] **Player Pick up, Drop Objects:** Allow players to pick up and drop objects.
+- [x] **Player Pick up, Drop Objects:** Allow players to pick up and drop objects.
 - [ ] **Cutting Counter, Interact Alternate:** Implement an alternate interaction for cutting.
 - [ ] **Cutting Recipe SO:** Utilize Scriptable Objects for cutting recipes.
 - [ ] **Cutting Progress, World Canvas:** Display cutting progress on a world canvas.
