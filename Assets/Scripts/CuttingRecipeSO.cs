@@ -4,6 +4,12 @@ using UnityEngine;
 
 [CreateAssetMenu()]
 public class CuttingRecipeSO : ScriptableObject {
-    [SerializeField] public KitchenObjectSO input;
-    [SerializeField] public KitchenObjectSO output;
+    // The uncut input kitchen object
+    public KitchenObjectSO input;
+
+    // The cut output kitchen object
+    public KitchenObjectSO output;
+
+    // The maximum amount of times to cut the kitchen object before it is cut
+    public int cuttingProgressMax;
 }
