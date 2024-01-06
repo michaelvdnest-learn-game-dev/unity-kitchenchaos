@@ -34,8 +34,8 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Cutting Recipe SO:** Utilize Scriptable Objects for cutting objects.
 - [x] **Cutting Progress, World Canvas:** Display cutting progress on a world canvas.
 - [x] **Look At Camera:** Make objects look at the camera.
-- [ ] **Trash Counter:** Implement a counter for trashed items.
-- [ ] **Stove Counter, State Machine:** Manage stove interactions with a state machine.
+- [x] **Trash Counter:** Implement a counter for trashed items.
+- [x] **Stove Counter, State Machine:** Manage stove interactions with a state machine.
 - [ ] **Plates Counter:** Implement a counter that spawns plates.
 - [ ] **Plate Pick up Objects:** Enable player to pick up plates.
 - [ ] **Plate Complete Visual:** Provide visual feedback for completed plates.
