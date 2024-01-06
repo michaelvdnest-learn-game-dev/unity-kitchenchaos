@@ -4,14 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
-public class CuttingCounter : BaseCounter {
-
+public class CuttingCounter : BaseCounter, IHasProgress {
 
     // Raised when current progess changes
-    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
-    public class OnProgressChangedEventArgs: EventArgs {
-        public float progressNormalized;
-    }
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
     public event EventHandler OnCut;
 
@@ -30,7 +26,7 @@ public class CuttingCounter : BaseCounter {
 
                 // Cutting progress is 0 when an object is placed on the counter
                 cuttingProgress = 0;
-                OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
                     progressNormalized = 0f,
                 });
             }
@@ -51,7 +47,8 @@ public class CuttingCounter : BaseCounter {
             OnCut?.Invoke(this, EventArgs.Empty);
 
             cuttingProgress += 1;
-            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
+            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+            {
                 progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
             });
 
