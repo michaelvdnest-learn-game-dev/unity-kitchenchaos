@@ -1,9 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.CullingGroup;
 
 public class StoveCounter : BaseCounter {
+
+    public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
+    public class OnStateChangedEventArgs : EventArgs {
+        public State state;
+    }
 
     // Array of objects that can be cooked on this counter
     [SerializeField] private FryingRecipeSO[] fryingRecipeSOArray;
@@ -11,7 +18,7 @@ public class StoveCounter : BaseCounter {
     // Array of objects that can be burned on this counter
     [SerializeField] private BurningRecipeSO[] burningRecipeSOArray;
 
-    private enum State {
+    public enum State {
         Idle,
         Frying,
         Fried,
@@ -27,7 +34,7 @@ public class StoveCounter : BaseCounter {
     private BurningRecipeSO burningRecipeSO;
 
     private void Start() {
-        state = State.Idle;
+        SetState(State.Idle);
     }
 
     private void Update() {
@@ -42,8 +49,9 @@ public class StoveCounter : BaseCounter {
                         GetKitchenObject().DestroySelf();
                         KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
 
-                        state = State.Fried;
+                        SetState(State.Fried);
                         burningRecipeSO = GetBurningRecipeSO(GetKitchenObject().GetKitchenObjectSO());
+
                     }
                     break;
                 case State.Fried:
@@ -52,7 +60,7 @@ public class StoveCounter : BaseCounter {
                         GetKitchenObject().DestroySelf();
                         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
 
-                        state = State.Burned;
+                        SetState(State.Burned);
                     }
                     break;
                 case State.Burned:
@@ -71,16 +79,24 @@ public class StoveCounter : BaseCounter {
                 // Store the recipe
                 fryingRecipeSO = GetFryingRecipeSO(GetKitchenObject().GetKitchenObjectSO());
 
-                state = State.Frying;
+                SetState(State.Frying);
                 fryingTimer = 0f;
             }
         }
         else {
             if (!player.HasKitchenObject()) {
                 this.GetKitchenObject().SetKitchenObjectParent(player);
-                state = State.Idle;
+                SetState(State.Idle);
             }
         }
+    }
+
+    private void SetState(State state) {
+        this.state = state;
+        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
+            state = this.state
+        });
+
     }
 
     private FryingRecipeSO GetFryingRecipeSO(KitchenObjectSO input) {
