@@ -33,7 +33,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Cutting Counter, Interact Alternate:** Implement a cutting counter.
 - [x] **Cutting Recipe SO:** Utilize Scriptable Objects for cutting objects.
 - [x] **Cutting Progress, World Canvas:** Display cutting progress on a world canvas.
-- [ ] **Look At Camera:** Make objects look at the camera.
+- [x] **Look At Camera:** Make objects look at the camera.
 - [ ] **Trash Counter:** Implement a counter for trashed items.
 - [ ] **Stove Counter, State Machine:** Manage stove interactions with a state machine.
 - [ ] **Plates Counter:** Implement a counter that spawns plates.
