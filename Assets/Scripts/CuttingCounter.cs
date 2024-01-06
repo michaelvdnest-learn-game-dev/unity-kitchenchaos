@@ -6,6 +6,15 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class CuttingCounter : BaseCounter {
 
+
+    // Raised when current progess changes
+    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
+    public class OnProgressChangedEventArgs: EventArgs {
+        public float progressNormalized;
+    }
+
+    public event EventHandler OnCut;
+
     // Array of objects that can be cut on this counter
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
 
@@ -21,6 +30,9 @@ public class CuttingCounter : BaseCounter {
 
                 // Cutting progress is 0 when an object is placed on the counter
                 cuttingProgress = 0;
+                OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
+                    progressNormalized = 0f,
+                });
             }
         } else {
             if (!player.HasKitchenObject()) {
@@ -34,8 +46,14 @@ public class CuttingCounter : BaseCounter {
 
             KitchenObjectSO kitchenObjectSO = GetKitchenObject().GetKitchenObjectSO();
 
-            cuttingProgress += 1;
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSO(kitchenObjectSO);
+
+            OnCut?.Invoke(this, EventArgs.Empty);
+
+            cuttingProgress += 1;
+            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
+                progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+            });
 
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax) {
                 KitchenObjectSO cutKitchenObjectSO = GetOutputForInput(kitchenObjectSO);
