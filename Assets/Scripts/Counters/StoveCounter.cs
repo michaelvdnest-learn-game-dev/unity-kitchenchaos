@@ -5,10 +5,61 @@ using UnityEngine;
 
 public class StoveCounter : BaseCounter {
 
-    [SerializeField] private KitchenObjectSO kitchenObjectSO;
-
     // Array of objects that can be cooked on this counter
     [SerializeField] private FryingRecipeSO[] fryingRecipeSOArray;
+
+    // Array of objects that can be burned on this counter
+    [SerializeField] private BurningRecipeSO[] burningRecipeSOArray;
+
+    private enum State {
+        Idle,
+        Frying,
+        Fried,
+        Burned
+    }
+
+    private State state;
+
+    private float fryingTimer;
+    private FryingRecipeSO fryingRecipeSO;
+
+    private float burningTimer;
+    private BurningRecipeSO burningRecipeSO;
+
+    private void Start() {
+        state = State.Idle;
+    }
+
+    private void Update() {
+        if (HasKitchenObject()) {
+            switch (state) {
+                case State.Idle:
+                    break;
+                case State.Frying:
+                    fryingTimer += Time.deltaTime;
+                    if (fryingTimer > fryingRecipeSO.fryingTimerMax) {
+                        Debug.Log("Fried!");
+                        GetKitchenObject().DestroySelf();
+                        KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
+
+                        state = State.Fried;
+                        burningRecipeSO = GetBurningRecipeSO(GetKitchenObject().GetKitchenObjectSO());
+                    }
+                    break;
+                case State.Fried:
+                    burningTimer += Time.deltaTime;
+                    if (burningTimer > burningRecipeSO.burningTimerMax) {
+                        GetKitchenObject().DestroySelf();
+                        KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
+
+                        state = State.Burned;
+                    }
+                    break;
+                case State.Burned:
+                    break;
+            }
+        }
+    }
 
     public override void Interact(Player player) {
         // Drop items on the counter
@@ -17,16 +68,17 @@ public class StoveCounter : BaseCounter {
                 // Set the kitchen object on the player to this counter only if it can be cut
                 player.GetKitchenObject().SetKitchenObjectParent(this);
 
-                // Cutting progress is 0 when an object is placed on the counter
-                //cuttingProgress = 0;
-                //OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs {
-                //    progressNormalized = 0f,
-                //});
+                // Store the recipe
+                fryingRecipeSO = GetFryingRecipeSO(GetKitchenObject().GetKitchenObjectSO());
+
+                state = State.Frying;
+                fryingTimer = 0f;
             }
         }
         else {
             if (!player.HasKitchenObject()) {
                 this.GetKitchenObject().SetKitchenObjectParent(player);
+                state = State.Idle;
             }
         }
     }
@@ -39,6 +91,16 @@ public class StoveCounter : BaseCounter {
         }
         return null;
     }
+
+    private BurningRecipeSO GetBurningRecipeSO(KitchenObjectSO input) {
+        foreach (BurningRecipeSO burningRecipeSO in burningRecipeSOArray) {
+            if (burningRecipeSO.input == input) {
+                return burningRecipeSO;
+            }
+        }
+        return null;
+    }
+
     public KitchenObjectSO GetOutputForInput(KitchenObjectSO input) {
         FryingRecipeSO fryingRecipeSO = GetFryingRecipeSO(input);
         if (fryingRecipeSO != null) {
