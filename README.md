@@ -32,7 +32,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Player Pick up, Drop Objects:** Allow players to pick up and drop objects.
 - [x] **Cutting Counter, Interact Alternate:** Implement a cutting counter.
 - [x] **Cutting Recipe SO:** Utilize Scriptable Objects for cutting objects.
-- [ ] **Cutting Progress, World Canvas:** Display cutting progress on a world canvas.
+- [x] **Cutting Progress, World Canvas:** Display cutting progress on a world canvas.
 - [ ] **Look At Camera:** Make objects look at the camera.
 - [ ] **Trash Counter:** Implement a counter for trashed items.
 - [ ] **Stove Counter, State Machine:** Manage stove interactions with a state machine.
