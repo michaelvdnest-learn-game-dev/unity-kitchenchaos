@@ -112,7 +112,6 @@ public class StoveCounter : BaseCounter, IHasProgress {
     }
 
     private void SetState(State state) {
-        Debug.Log(state);
         this.state = state;
         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
             state = this.state
