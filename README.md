@@ -36,7 +36,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Look At Camera:** Make objects look at the camera.
 - [x] **Trash Counter:** Implement a counter for trashed items.
 - [x] **Stove Counter, State Machine:** Manage stove interactions with a state machine.
-- [ ] **Plates Counter:** Implement a counter that spawns plates.
+- [x] **Plates Counter:** Implement a counter that spawns plates.
 - [ ] **Plate Pick up Objects:** Enable player to pick up plates.
 - [ ] **Plate Complete Visual:** Provide visual feedback for completed plates.
 - [ ] **Plate World UI Icons:** Display UI icons for plates in the world.
