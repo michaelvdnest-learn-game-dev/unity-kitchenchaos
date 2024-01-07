@@ -37,7 +37,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Trash Counter:** Implement a counter for trashed items.
 - [x] **Stove Counter, State Machine:** Manage stove interactions with a state machine.
 - [x] **Plates Counter:** Implement a counter that spawns plates.
-- [ ] **Plate Pick up Objects:** Enable player to pick up plates.
+- [ ] **Plate Pick up Objects:** Enable player to place items on plates.
 - [ ] **Plate Complete Visual:** Provide visual feedback for completed plates.
 - [ ] **Plate World UI Icons:** Display UI icons for plates in the world.
 - [ ] **Delivery Counter, Shader Graph:** Use Shader Graph for the delivery counter.
