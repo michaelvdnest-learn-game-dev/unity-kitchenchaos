@@ -40,7 +40,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Plate Pick up Objects:** Enable player to place items on plates.
 - [x] **Plate Complete Visual:** Provide visual feedback for completed plates.
 - [x] **Plate World UI Icons:** Display UI icons for plates in the world.
-- [ ] **Delivery Counter, Shader Graph:** Use Shader Graph for the delivery counter.
+- [x] **Delivery Counter, Shader Graph:** Use Shader Graph for the delivery counter.
 - [ ] **Delivery Manager:** Manage the delivery of completed items.
 - [ ] **Delivery Manager UI:** Create a UI for the delivery manager.
 - [ ] **Music:** Implement background music.
