@@ -62,7 +62,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
     private void HandleMovement() {
 
-        // Get a vector of the player's movement 
+        // Get a vector of the player's movement
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
 
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
             // Attempt moving in X direction.
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0f, 0f).normalized;
             canMove = moveDirection.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerSize, moveDirectionX, moveDistance);
-            
+
             if (canMove) {
                 moveDirection = moveDirectionX;
             } else {
@@ -100,14 +100,14 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     }
 
     private void HandleInteractions() {
-         // Get a vector of the player's movement 
+         // Get a vector of the player's movement
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
 
         if (moveDirection != Vector3.zero){
             lastInteractDirection = moveDirection;
         }
-        
+
         if (Physics.Raycast(transform.position, lastInteractDirection, out RaycastHit hitInfo, interactDistance, countersLayersMask)) {
             if (hitInfo.transform.TryGetComponent(out BaseCounter counter)){
                 if (counter != selectedCounter) {
