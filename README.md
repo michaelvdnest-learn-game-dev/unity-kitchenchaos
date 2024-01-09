@@ -44,7 +44,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Delivery Manager:** Manage the delivery of completed items.
 - [x] **Delivery Manager UI:** Create a UI for the delivery manager.
 - [x] **Music:** Implement background music.
-- [ ] **Sound Effects:** Add sound effects to enhance the gaming experience.
+- [x] **Sound Effects:** Add sound effects to enhance the gaming experience.
 - [ ] **Game Start:** Handle the start of the game.
 - [ ] **Game Over:** Implement game over functionality.
 - [ ] **Main Menu, Loading:** Create a main menu and loading screen.
