@@ -41,7 +41,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Plate Complete Visual:** Provide visual feedback for completed plates.
 - [x] **Plate World UI Icons:** Display UI icons for plates in the world.
 - [x] **Delivery Counter, Shader Graph:** Use Shader Graph for the delivery counter.
-- [ ] **Delivery Manager:** Manage the delivery of completed items.
+- [x] **Delivery Manager:** Manage the delivery of completed items.
 - [ ] **Delivery Manager UI:** Create a UI for the delivery manager.
 - [ ] **Music:** Implement background music.
 - [ ] **Sound Effects:** Add sound effects to enhance the gaming experience.
