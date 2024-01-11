@@ -41,7 +41,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
         gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
 
-
     // Update is called once per frame
     private void Update() {
         HandleMovement();
