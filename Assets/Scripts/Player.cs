@@ -52,18 +52,21 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e) {
-        if (selectedCounter != null) {
-            selectedCounter.Interact(this);
+        if (GameManager.Instance.IsGamePlaying()) {
+            if (selectedCounter != null) {
+                selectedCounter.Interact(this);
+            }
         }
     }
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e) {
-        if (selectedCounter != null) {
-            selectedCounter.InteractAlternate(this);
+        if (GameManager.Instance.IsGamePlaying()) {
+            if (selectedCounter != null) {
+                selectedCounter.InteractAlternate(this);
+            }
         }
     }
 
     private void HandleMovement() {
-
         // Get a vector of the player's movement
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
