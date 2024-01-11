@@ -13,15 +13,15 @@ public class DeliveryManagerUI : MonoBehaviour {
     }
 
     private void Start() {
-        DeliveryManager.Instance.OnRecipeSpawned += Instance_OnRecipeSpawned;
-        DeliveryManager.Instance.OnRecipeCompleted += Instance_OnRecipeCompleted;
+        DeliveryManager.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
+        DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
         UpdateVisual();
     }
 
-    private void Instance_OnRecipeSpawned(object sender, System.EventArgs e) {
+    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e) {
         UpdateVisual();
     }
-    private void Instance_OnRecipeCompleted(object sender, System.EventArgs e) {
+    private void DeliveryManager_OnRecipeCompleted(object sender, System.EventArgs e) {
         UpdateVisual();
     }
 

@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class CuttingCounter : BaseCounter, IHasProgress {
+
+    public static event EventHandler OnAnyCut;
 
     // Raised when current progess changes
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
@@ -52,6 +55,7 @@ public class CuttingCounter : BaseCounter, IHasProgress {
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSO(kitchenObjectSO);
 
             OnCut?.Invoke(this, EventArgs.Empty);
+            OnAnyCut?.Invoke(this, EventArgs.Empty);
 
             cuttingProgress += 1;
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
