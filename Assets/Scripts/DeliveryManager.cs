@@ -13,6 +13,7 @@ public class DeliveryManager : MonoBehaviour {
 
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
+    public event EventHandler OnRecipeFailed;
 
     // The list of recipes that can be made by this manager
     [SerializeField] private RecipeListSO recipeListSO;
@@ -56,6 +57,8 @@ public class DeliveryManager : MonoBehaviour {
                 }
             }
         }
+
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
     }
 
     public List<RecipeSO> GetWaitingRecipeSOList() {
