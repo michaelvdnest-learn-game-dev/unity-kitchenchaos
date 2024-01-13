@@ -26,6 +26,8 @@ public class DeliveryManager : MonoBehaviour {
 
     private float spawnRecipeTimer;
 
+    private int successfulRecipesAmount;
+
     private void Awake() {
         Instance = this;
         waitingRecipeSOList = new List<RecipeSO>();
@@ -50,6 +52,7 @@ public class DeliveryManager : MonoBehaviour {
                 // a recipe and the plate has the same number of ingredients
                 if (waitingRecipeSO.kitchenObjectSOList.ToHashSet().SetEquals(plateKitchenObject.GetKitchenObjectSOList())) {
                     // the recipe and the plate have the same ingredients
+                    successfulRecipesAmount++;
                     waitingRecipeSOList.Remove(waitingRecipeSO);
                     plateKitchenObject.DestroySelf();
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
@@ -63,5 +66,9 @@ public class DeliveryManager : MonoBehaviour {
 
     public List<RecipeSO> GetWaitingRecipeSOList() {
         return waitingRecipeSOList;
+    }
+
+    public int GetSuccessfulRecipesAmount() {
+        return successfulRecipesAmount;
     }
 }
