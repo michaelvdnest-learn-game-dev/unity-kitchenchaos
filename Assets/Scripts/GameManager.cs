@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private float countdownToStartTimer = 3f;
     [SerializeField] private float gamePlayingTimer = 10f;
 
+    private float gamePlayingTimerMax;
+
     private enum State {
         WaitingToStart,
         CountdownToStart,
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         Instance = this;
         state = State.WaitingToStart;
+        gamePlayingTimerMax = gamePlayingTimer;
     }
 
     private void Update() {
@@ -63,7 +66,6 @@ public class GameManager : MonoBehaviour {
                 OnStateChanged?.Invoke(this, EventArgs.Empty);
                 break;
         }
-        Debug.Log(state);
     }
 
     public bool IsGamePlaying() {
@@ -80,5 +82,9 @@ public class GameManager : MonoBehaviour {
 
     public bool IsGameOver() {
         return (state  == State.GameOver);
+    }
+
+    public float GetGamePlayingTimerNormalized() {
+        return 1 - (gamePlayingTimer / gamePlayingTimerMax);
     }
 }
