@@ -46,7 +46,7 @@ You can follow along with the tutorial on [YouTube](https://www.youtube.com/watc
 - [x] **Music:** Implement background music.
 - [x] **Sound Effects:** Add sound effects to enhance the gaming experience.
 - [x] **Game Start:** Handle the start of the game.
-- [ ] **Game Over:** Implement game over functionality.
+- [x] **Game Over:** Implement game over functionality.
 - [ ] **Main Menu, Loading:** Create a main menu and loading screen.
 - [ ] **Pause, Clear Statics:** Implement pause functionality and clear statics.
 - [ ] **Options, Audio Levels:** Allow players to adjust audio levels in the options menu.
